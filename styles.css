@@ -134,8 +134,9 @@ p { margin: 0; }
 }
 
 .nav-logo img {
-  height: 34px;
+  height: 40px;
   width: auto;
+  min-width: 160px;
 }
 
 .nav-links {
