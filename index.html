@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ProxiPro gives trusted professional relationships a platform. Built on relationships. Powered by trust.">
+  <title>ProxiPro — Built on Relationships. Powered by Trust.</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 760px;
+      padding: 110px 0 120px;
+      color: #fff;
+      background: var(--navy-deep);
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3,31,56,.90) 0%,
+          rgba(3,31,56,.78) 42%,
+          rgba(3,31,56,.48) 68%,
+          rgba(3,31,56,.28) 100%
+        );
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-copy { max-width: 760px; }
+
+    .hero-copy .brand-lockup {
+      width: min(420px, 85%);
+      margin-bottom: 42px;
+    }
+
+    .hero-title {
+      line-height: .92;
+      letter-spacing: -.04em;
+    }
+
+    .hero-title .line1 {
+      display: block;
+      font-size: clamp(3.6rem, 5vw, 5.8rem);
+      white-space: nowrap;
+      color: #fff;
+      margin-bottom: -0.06em;
+      text-shadow: 0 2px 12px rgba(0,0,0,.28);
+    }
+
+    .hero-title .line2 {
+      display: block;
+      font-size: clamp(4.4rem, 6vw, 6.9rem);
+      white-space: nowrap;
+      color: #9dc7e4;
+      text-shadow: 0 2px 12px rgba(0,0,0,.28);
+    }
+
+    .hero-copy .lead {
+      max-width: 760px;
+      margin-top: 26px;
+      color: rgba(255,255,255,.88);
+      text-shadow: 0 1px 2px rgba(0,0,0,.25);
+    }
+
+    .hero-copy .lead strong {
+      display: block;
+      width: max-content;
+      max-width: 100%;
+      font-size: clamp(1.35rem, 2.05vw, 2rem);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      color: #fff;
+    }
+
+    .hero .eyebrow { color: #b9d8ee; }
+
+    /* ── Thesis ── */
+    .thesis { padding: 112px 0; }
+
+    .thesis-heading { max-width: 940px; }
+
+    .why-intro {
+      max-width: 860px;
+      margin-top: 24px;
+    }
+
+    .why-intro .lead + .lead { margin-top: 16px; }
+
+    .thesis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 50px;
+    }
+
+    .thesis-card {
+      padding: 42px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: #f8fbfd;
+    }
+
+    .thesis-card h3 { color: var(--navy); }
+
+    .thesis-card p {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    /* ── Reputation ── */
+    .reputation {
+      padding: 104px 0;
+      color: #fff;
+      background: var(--navy);
+    }
+
+    .reputation-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .reputation .eyebrow { color: #9dc7e4; }
+
+    .reputation-copy h2 {
+      max-width: 760px;
+      font-size: clamp(2.75rem, 4.1vw, 4.25rem);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+
+    .reputation-heading span { display: block; white-space: nowrap; }
+
+    .reputation-copy p {
+      margin-top: 24px;
+      color: rgba(255,255,255,.76);
+      font-size: 1.15rem;
+    }
+
+    .reputation-list { display: grid; gap: 14px; }
+
+    .reputation-item {
+      padding: 23px 25px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 17px;
+      background: rgba(255,255,255,.07);
+    }
+
+    .reputation-item strong {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+
+    .reputation-value {
+      display: block;
+      color: rgba(255,255,255,.78);
+      font-size: 1rem;
+      line-height: 1.45;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* ── Personas ── */
+    .personas {
+      padding: 118px 0;
+      background: #f5f8fa;
+    }
+
+    .section-heading {
+      max-width: 900px;
+      margin-bottom: 60px;
+    }
+
+    .section-heading .lead { margin-top: 22px; }
+
+    .persona {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      padding: 62px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .persona:first-of-type {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .persona:nth-child(even) .persona-media { order: -1; }
+
+    .persona-title {
+      margin-top: 14px;
+      color: var(--navy);
+      font-size: clamp(1.85rem, 3vw, 2.9rem);
+    }
+
+    .persona-copy > p:not(.eyebrow) {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .persona-points {
+      display: grid;
+      gap: 12px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .persona-points li {
+      position: relative;
+      padding-left: 27px;
+      font-weight: 700;
+    }
+
+    .persona-points li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--blue);
+      font-weight: 900;
+    }
+
+    .persona-media {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      background: #dfeaf1;
+      box-shadow: var(--shadow);
+    }
+
+    .persona-media img {
+      width: 100%;
+      aspect-ratio: 16 / 10.5;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    /* ── Platform ── */
+    .platform { padding: 118px 0; }
+
+    .platform-intro {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 60px;
+      align-items: end;
+    }
+
+    .platform-showcase {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 24px;
+      margin-top: 54px;
+    }
+
+    .showcase-large,
+    .showcase-small {
+      overflow: hidden;
+      border-radius: var(--radius-xl);
+      background: var(--ice);
+      box-shadow: var(--shadow);
+    }
+
+    .showcase-large {
+      min-height: 530px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed var(--line);
+    }
+
+    .showcase-large img {
+      width: 100%;
+      height: 100%;
+      min-height: 530px;
+      object-fit: cover;
+      object-position: top;
+      border-radius: var(--radius-xl);
+    }
+
+    .showcase-stack { display: grid; gap: 24px; }
+
+    .showcase-small img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .feature-card {
+      min-height: 210px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #fff;
+    }
+
+    .feature-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 30px;
+      color: #fff;
+      border-radius: 50%;
+      background: var(--navy);
+      font-weight: 900;
+    }
+
+    .feature-card p {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    /* ── Difference ── */
+    .difference {
+      padding: 108px 0;
+      color: #fff;
+      background: var(--navy-deep);
+    }
+
+    .difference .eyebrow { color: #9dc7e4; }
+
+    .difference-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 50px;
+    }
+
+    .difference-card {
+      padding: 38px;
+      border-radius: var(--radius-xl);
+    }
+
+    .difference-card.old {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+
+    .difference-card.proxi {
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .difference-card ul {
+      display: grid;
+      gap: 14px;
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .difference-card li {
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(126,145,160,.25);
+      font-weight: 700;
+    }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      padding: 118px 0;
+      text-align: center;
+      background:
+        radial-gradient(circle at top left, rgba(73,149,205,.20), transparent 34%),
+        #fff;
+    }
+
+    .final-cta h2 {
+      max-width: 1120px;
+      margin-inline: auto;
+      font-size: clamp(2.8rem, 4.25vw, 4.35rem);
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+
+    .final-cta-copy {
+      max-width: 900px;
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .final-cta .lead {
+      max-width: 900px;
+      margin: 26px auto 0;
+      font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .final-cta .hero-actions { justify-content: center; margin-top: 24px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 940px) {
+      .persona:nth-child(even) .persona-media { order: 0; }
+      .feature-grid { grid-template-columns: repeat(2, 1fr); }
+      .showcase-large img { min-height: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .reputation-item strong { white-space: normal; }
+      .reputation-heading span { white-space: normal; }
+
+      .hero {
+        min-height: auto;
+        padding-top: 60px;
+        padding-bottom: 72px;
+      }
+
+      .hero-video { object-position: 62% center; }
+      .hero-overlay { background: rgba(3,31,56,.80); }
+      .hero-copy .brand-lockup { display: none; }
+
+      .hero-title .line1 {
+        font-size: clamp(2.2rem, 8.5vw, 3.6rem);
+        white-space: normal;
+      }
+
+      .hero-title .line2 {
+        font-size: clamp(2.6rem, 10vw, 4.4rem);
+        white-space: normal;
+      }
+
+      .thesis { padding: 64px 0; }
+      .thesis-grid { grid-template-columns: 1fr; }
+      .thesis-card { padding: 28px; }
+
+      .reputation { padding: 64px 0; }
+      .reputation-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .personas { padding: 64px 0; }
+      .persona {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 40px 0;
+      }
+      .persona:nth-child(even) .persona-media { order: 0; }
+
+      .platform { padding: 64px 0; }
+      .platform-intro { grid-template-columns: 1fr; gap: 32px; }
+      .platform-showcase { grid-template-columns: 1fr; }
+      .showcase-large { min-height: 280px; }
+      .showcase-large img { min-height: auto; }
+
+      .feature-grid { grid-template-columns: 1fr; }
+
+      .difference { padding: 64px 0; }
+      .difference-grid { grid-template-columns: 1fr; }
+      .difference-card { padding: 28px; }
+
+      .final-cta { padding: 72px 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">
+      <img src="assets/ProxiProLogo.png" alt="ProxiPro">
+    </a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/support">Support</a></li>
+    </ul>
+    <a class="button button-primary nav-cta" href="/get-started">Get Started</a>
+    <button class="nav-toggle" aria-label="Open navigation menu" onclick="toggleNav()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <div class="nav-mobile" id="navMobile">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/support">Support</a>
+    <a class="button button-primary" href="/get-started">Get Started</a>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto">
+      <source src="assets/proxihero3.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <img class="brand-lockup" src="assets/ProxiProLogo.png" alt="ProxiPro">
+        <h1 class="hero-title">
+          <span class="line1">Built on relationships.</span>
+          <span class="line2">Powered by trust.</span>
+        </h1>
+        <p class="lead">
+          <strong>Buying a home is a milestone. Owning one is a lifelong journey.</strong><br><br>
+          Property ownership is filled with important decisions. Every home eventually needs a lender, an insurance agent, a roofer, an electrician, a plumber, a landscaper, and countless other trusted professionals. Finding the right people shouldn't depend on online reviews, paid advertisements, or guesswork.<br><br>
+          ProxiPro helps homeowners discover trusted professionals through the relationships they already have while empowering those professionals to strengthen referrals, stay connected, and continue creating value long after the original transaction ends.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="/get-started">Get Started</a>
+          <a class="button button-outline" href="/about">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="thesis">
+    <div class="container">
+      <div class="thesis-heading">
+        <p class="eyebrow">Why ProxiPro Exists</p>
+        <h2>Every trusted relationship deserves a better way to stay connected.</h2>
+        <div class="why-intro">
+          <p class="lead">
+            Every home purchase creates a network of trusted professionals who helped make it happen. But once the transaction ends, those relationships become fragmented across text messages, emails, business cards, and memory.
+          </p>
+          <p class="lead">
+            ProxiPro gives those trusted connections a place to stay organized, visible, and valuable long after closing day.
+          </p>
+        </div>
+      </div>
+
+      <div class="thesis-grid">
+        <article class="thesis-card">
+          <h3>Built on relationships.</h3>
+          <p>
+            Real estate agents recommend lenders. Lenders introduce insurance professionals. Insurance agents connect homeowners with contractors. Service providers build partnerships with the professionals who know their work and trust their reputation.
+          </p>
+          <p>
+            ProxiPro does not create that behavior. It organizes it, strengthens it, and gives every trusted connection a permanent place to live.
+          </p>
+        </article>
+
+        <article class="thesis-card">
+          <h3>Powered by trust.</h3>
+          <p>
+            A recommendation means more when it comes from someone who has already earned your confidence. Trust changes the quality of the introduction, the first conversation, and the relationship that follows.
+          </p>
+          <p>
+            Every successful referral adds value to the client, strengthens the professionals involved, and makes the entire network more useful. For homeowners, that means less guesswork and more confidence every time they need help caring for their home.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="reputation">
+    <div class="container reputation-grid">
+      <div class="reputation-copy">
+        <p class="eyebrow">Why it matters</p>
+        <h2 class="reputation-heading">
+          <span>Every recommendation</span>
+          <span>carries a reputation.</span>
+        </h2>
+        <p>
+          When you recommend a professional, you are putting your own credibility behind that introduction. ProxiPro makes those recommendations easier to share, easier to follow, and more valuable for everyone involved.
+        </p>
+      </div>
+
+      <div class="reputation-list">
+        <div class="reputation-item">
+          <strong>For the professional making the referral</strong>
+          <span class="reputation-value">Stay useful, visible, and connected to the client.</span>
+        </div>
+        <div class="reputation-item">
+          <strong>For the professional receiving the referral</strong>
+          <span class="reputation-value">Begin with trust instead of competing as a stranger.</span>
+        </div>
+        <div class="reputation-item">
+          <strong>For the homeowner</strong>
+          <span class="reputation-value">Find the right professional through someone already trusted.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="personas" id="who-it-serves">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">What ProxiPro means for you</p>
+        <h2>One connected platform. Different value for every person in the network.</h2>
+        <p class="lead">
+          ProxiPro serves the entire home and property ecosystem while giving each participant a clear reason to stay connected.
+        </p>
+      </div>
+
+      <article class="persona">
+        <div class="persona-copy">
+          <p class="eyebrow">Real estate agents, lenders, and insurance professionals</p>
+          <h3 class="persona-title">You earned the relationship. Keep creating value.</h3>
+          <p>
+            You spend weeks or months earning a client's trust. The relationship should not disappear when the transaction or renewal is complete. ProxiPro gives clients ongoing access to the professionals you trust, while keeping you useful and visible throughout the lifetime of the home.
+          </p>
+          <ul class="persona-points">
+            <li>Share your full trusted network from one professional profile.</li>
+            <li>Stay relevant between transactions and annual renewals.</li>
+            <li>Give clients an organized place to find the professionals you recommend.</li>
+            <li>Strengthen the relationships that continue generating business.</li>
+          </ul>
+        </div>
+        <div class="persona-media">
+          <img src="assets/profile.jpeg" alt="ProxiPro professional profile" loading="lazy">
+        </div>
+      </article>
+
+      <article class="persona">
+        <div class="persona-copy">
+          <p class="eyebrow">Service providers</p>
+          <h3 class="persona-title">Stop competing for strangers. Grow through trusted introductions.</h3>
+          <p>
+            Great work should lead to stronger relationships, more referrals, and a business that becomes easier to manage. ProxiPro helps service providers build a professional presence, connect with trusted referral partners, and bring everyday business tools together in one place.
+          </p>
+          <ul class="persona-points">
+            <li>Become part of the networks trusted advisors share with homeowners.</li>
+            <li>Present your company through a professional, shareable profile.</li>
+            <li>Build stronger relationships with the professionals who recommend you.</li>
+            <li>Organize estimates, invoices, teams, forms, communication, and payments.</li>
+          </ul>
+        </div>
+        <div class="persona-media">
+          <img src="assets/dashboard.jpeg" alt="ProxiPro business dashboard" loading="lazy">
+        </div>
+      </article>
+
+      <article class="persona">
+        <div class="persona-copy">
+          <p class="eyebrow">Homeowners</p>
+          <h3 class="persona-title">Find professionals through people you already trust.</h3>
+          <p>
+            Finding a plumber, electrician, roofer, lender, or insurance professional should not depend on anonymous reviews and guesswork. ProxiPro gives homeowners an organized view of the professional networks connected to people they already know and trust.
+          </p>
+          <ul class="persona-points">
+            <li>Explore professionals by category and location.</li>
+            <li>See the network behind each recommendation.</li>
+            <li>Contact the right person without searching old texts or asking around.</li>
+            <li>Use a network that becomes more useful as trusted connections grow.</li>
+          </ul>
+        </div>
+        <div class="persona-media">
+          <img src="assets/map.jpeg" alt="ProxiPro explore map" loading="lazy">
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="platform" id="platform">
+    <div class="container">
+      <div class="platform-intro">
+        <div>
+          <p class="eyebrow">The platform behind the relationships</p>
+          <h2>Relationships need more than a contact list.</h2>
+        </div>
+        <p class="lead">
+          They need organization, visibility, communication, follow-through, and accountability. ProxiPro brings those needs together in one connected platform built around the way trusted professionals already work.
+        </p>
+      </div>
+
+      <div class="platform-showcase">
+        <div class="showcase-large" id="showcaseLarge">
+          <!-- Replace with: <img src="assets/YOUR-SCREENSHOT.jpg" alt="ProxiPro platform" loading="lazy"> -->
+        </div>
+
+        <div class="showcase-stack">
+          <div class="showcase-small">
+            <img src="assets/map.jpeg" alt="ProxiPro Explore map" loading="lazy">
+          </div>
+          <div class="showcase-small">
+            <img src="assets/dashboard.jpeg" alt="ProxiPro operations dashboard" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-number">01</span>
+          <h3>Build your network</h3>
+          <p>Add the professionals you already know, trust, and recommend.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">02</span>
+          <h3>Share trusted connections</h3>
+          <p>Give clients access to an organized professional network.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">03</span>
+          <h3>Stay connected</h3>
+          <p>Keep relationships useful beyond the original transaction.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">04</span>
+          <h3>Run the business</h3>
+          <p>Bring communication, transactions, teams, forms, and payments together.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="difference">
+    <div class="container">
+      <p class="eyebrow">The ProxiPro difference</p>
+      <h2>Other platforms sell leads.<br>ProxiPro strengthens relationships.</h2>
+
+      <div class="difference-grid">
+        <article class="difference-card old">
+          <h3>Traditional lead platforms</h3>
+          <ul>
+            <li>Connect professionals with strangers</li>
+            <li>Create competition based on price and speed</li>
+            <li>Charge for access to cold or shared opportunities</li>
+            <li>Focus on a single transaction</li>
+            <li>Leave existing professional relationships disconnected</li>
+          </ul>
+        </article>
+
+        <article class="difference-card proxi">
+          <h3>ProxiPro</h3>
+          <ul>
+            <li>Starts with relationships that already exist</li>
+            <li>Delivers introductions backed by real trust</li>
+            <li>Makes professional networks visible and shareable</li>
+            <li>Creates value before, during, and after the transaction</li>
+            <li>Builds a network that becomes stronger over time</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <p class="eyebrow">Built for the way business really grows</p>
+      <h2>The real asset isn't the transaction.<br>It's the relationship.</h2>
+
+      <div class="final-cta-copy">
+        <p>Stronger relationships create stronger businesses, better client experiences, and more connected communities. ProxiPro helps those relationships continue creating value for homeowners and the professionals they trust.</p>
+      </div>
+
+      <p class="lead">Give the relationships behind your business the platform they deserve.</p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="/get-started">Get Started with ProxiPro</a>
+        <a class="button button-ghost" href="/about">Learn About Us</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <img class="footer-logo" src="assets/ProxiProLogo.png" alt="ProxiPro">
+    <ul class="footer-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/support">Support</a></li>
+    </ul>
+    <small>© 2026 ProxiPro. Built on relationships. Powered by trust.</small>
+  </div>
+</footer>
+
+<script>
+  function toggleNav() {
+    const menu = document.getElementById('navMobile');
+    menu.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
