@@ -133,10 +133,16 @@ p { margin: 0; }
   margin-inline: auto;
 }
 
-.nav-logo img {
+.nav-logo img,
+.nav-logo svg {
   height: 40px;
   width: auto;
-  min-width: 160px;
+}
+
+.footer-logo,
+.footer-logo-svg {
+  height: 32px;
+  width: auto;
 }
 
 .nav-links {
